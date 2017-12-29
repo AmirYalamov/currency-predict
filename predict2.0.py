@@ -1,21 +1,9 @@
 # https://goo.gl/AoZQia, one of my GitHub projects' source code
-import os
-import sys
 import requests
 import numpy as np
-import pandas
 import csv
 from keras.models import Sequential
 from keras.layers import Dense
-
-# https://goo.gl/1aK9Eo, an online tutorial
-from keras.wrappers.scikit_learn import KerasRegressor
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import KFold
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-
-from keras import regularizers
 
 # where csv file will be stored
 FILE_NAME = "data.csv"
