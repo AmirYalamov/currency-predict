@@ -68,8 +68,8 @@ def price_prediction ():
     model.compile(optimizer='adam', loss='mean_squared_error')
     model.fit(train_X, train_Y, epochs=200, batch_size=2, verbose=2, shuffle=True, initial_epoch=0)
     # Our prediction for tomorrow
-    prediction = model.predict(np.array([dataset[2]]))
-    result = "The price will move from %s to %s" % (dataset[2], prediction[0][0])
+    prediction = model.predict(np.array([dataset[30]]))
+    result = "The price will move from %s to %s" % (dataset[30], prediction[0][0])
 
     return result
 
