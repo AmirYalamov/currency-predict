@@ -12,7 +12,8 @@ FILE_NAME = "data.csv"
 def getData (arg1, arg2):
     CC = arg1
     currency = arg2
-    # closing value is 1 day behind, with closing time at 7:00pm EST
+    # closing value is 1 day behind, with closing time at 7:00pm EST (12:00.00am UTC)
+    # API used: https://www.cryptocompare.com/api/
     priceH = requests.get("https://min-api.cryptocompare.com/data/histoday?fsym=" + CC + "&tsym=" + currency).json()["Data"]   # gets list of dictionaries
     return priceH
 
@@ -23,6 +24,7 @@ def closeList (CC, currency):
     dataList = getData(arg1, arg2)
     closeList = []
     counter = 0
+    # goes through data that API provides, extracts only closing value
     for entry in dataList:
         counter += 1
         for key in entry:
@@ -63,6 +65,7 @@ def price_prediction ():
 
     # Create and fit a miltilayer perceptron model
     model = Sequential()
+    # create 2 layers of neurons in the network
     model.add(Dense(8, input_dim=1, activation='relu'))
     model.add(Dense(1))
     model.compile(optimizer='adam', loss='mean_squared_error')
